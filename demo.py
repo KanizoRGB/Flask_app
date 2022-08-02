@@ -8,6 +8,8 @@ app.secret_key='jumpjacks' #in order to use session, we need a secret key
 username=''  #create a user for the session
 user = model.check_users()
 
+
+
 @app.route('/',methods = ['GET','POST'])
 def home():
 
@@ -15,7 +17,8 @@ def home():
         g.user = session['username']
 
         return render_template('football.html')
-    return render_template('homepage.html', message = '<img src= static/img/watch_ylw_bg.jpg>')
+    return render_template('homepage.html', message = 'Login to the page or sign up')
+
 
 
 @app.route('/login',methods = ['GET','POST'])
@@ -27,9 +30,9 @@ def login():
         pwd = model.check_pw(areyouuser)
         if request.form['password'] == pwd:
             session['username']= request.form['username']
-            return redirect(url_for('home'))
+            return redirect(url_for('football'))
 
-    return render_template('index.html ')
+    return render_template('index.html')
 
 
 
@@ -53,16 +56,18 @@ def login():
     '''
 
 
+
 @app.before_request
 def before_request():
     g.username = None
     if 'username' in session:
         g.username = session['username']
         
-'''
+
 @app.route('/football',methods=['GET','POST'])
 def football():
-    return render_template('football.html')'''
+    return render_template('football.html', message = "<img src =static/img/steel_watch.jpg>") 
+
 
 
 @app.route('/signup',methods=['GET','POST'])
@@ -81,12 +86,14 @@ def signup():
         return render_template('signup.html', message = message)
 
 
+
 @app.route('/getsession')
 def getsession():
     if username in session:
         return session['username']
 
     return redirect(url_for('login'))
+
 
 
 @app.route('/logout')
