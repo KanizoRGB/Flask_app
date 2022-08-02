@@ -1,0 +1,10 @@
+html, body {
+    background-color: rgb(252, 254, 254);
+    background-image: url(../img/earphone1.jpg);
+}
+p {
+    color: black;
+}
+h2 {
+    color: blueviolet;
+}
