@@ -66,7 +66,7 @@ def before_request():
 
 @app.route('/football',methods=['GET','POST'])
 def football():
-    return render_template('football.html', message = "<img src =static/img/steel_watch.jpg>") 
+    return render_template('football.html', message = "<img src =static/img/steel_watch.jpg width = 50%>") 
 
 
 

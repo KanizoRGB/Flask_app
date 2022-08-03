@@ -3,12 +3,27 @@
 {% block main %}
 
 <h1> This is for signing up here!</h1>
-    <form action="/signup" method="post">
-        <input placeholder="Username" name="username" type="text">
-        <input placeholder="Password" name="password" type="password">
-        <input placeholder="Favorite color" name="favorite_color" type="text">
-        <input type="submit">
-    </form>
-<p>{{ message}}</p>
+<form action="/signup" method="post">
+    <!--<img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
+    <!--<h1 class="h3 mb-3 fw-normal">Please sign up</h1>-->
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+      <label for="floatingPassword">Password</label>
+    </div>
+    <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Favorite color" name="favorite_color">
+        <label for="floatingInput">Favorite color</label>
+      </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <p>{{ message}}</p>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+  </form>
+
 
 {% endblock main %}
